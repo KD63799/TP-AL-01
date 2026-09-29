@@ -1,0 +1,26 @@
+# Infrastructure du starter : rien à modifier pour les TP.
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: archi
+      POSTGRES_PASSWORD: archi
+      POSTGRES_DB: reservation
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U archi -d reservation"]
+      interval: 2s
+      retries: 15
+
+  rabbitmq:
+    image: rabbitmq:4-management
+    ports:
+      - "5672:5672"
+      - "15672:15672" # console d'administration : http://localhost:15672 (guest / guest)
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 5s
+      retries: 15
