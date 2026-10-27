@@ -1,10 +1,10 @@
 # ADR-004 : Pourquoi isoler cette dépendance derrière un port ?
 
-- **Statut** : Proposé
-- **Date** :
-- **Variante** :
+[- **Statut** : Proposé
+- **Date** : 27/10
+- **Variante** : ## Variante 3 - Coworking multi-sites
 - **Séance** : S4 (format allégé : une alternative, une conséquence)
-
+]()
 ## Contexte
 
 (Deux phrases.) Le use case `...` dépend directement de `...` (infra). Pour ma variante, cela menace l'attribut qualité `...` parce que ...
